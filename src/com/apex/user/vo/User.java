@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Table(name = "user_info_details")
 public class User {
 	private int id;
+	private String email;
 	private String  firstName;
 	private String	lastName;
 	private String  middleName;
@@ -26,15 +27,28 @@ public class User {
 	}
 	
 	@Id
+	@Column(name = "id",nullable = false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
+
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(int id ) {
 		this.id = id;
 	}
+
+	
+	
+	@Column(name = "email")
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	@Column(name = "firstName")
 	public String getFirstName() {
 		return firstName;
@@ -83,6 +97,19 @@ public class User {
 	}
 	public void setaccount(String account) {
 		this.account = account;
+	}
+
+	public void Clear() {
+		
+		    email="";
+			firstName = "";
+			lastName= "";
+			middleName = "";
+			bankName = "";
+			account = null;
+			ssn = null;
+		
+		
 	}
 	
 

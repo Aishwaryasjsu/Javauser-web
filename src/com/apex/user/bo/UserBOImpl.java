@@ -1,5 +1,6 @@
 package com.apex.user.bo;
 
+import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +28,23 @@ public class UserBOImpl implements UserBO {
 
 	@Override
 	public void updateUser(User user) {
-
+		userDAO.updateUser(user);
 	}
-
 	@Override
-	public User getUser(int id) {
+	public User getUser(String email) {
 		return null;
+		
+	}
+	
+	@Override
+	public User CustomgetUser(String email) {
+		System.out.println("UserBOImpl:addUser():Start");
+//		System.out.println(userDAO.CustomgetUser(email));
+		System.out.println("UserBOImpl:addUser():End");
+		java.util.List<User> usr =(java.util.List<User>) userDAO.CustomgetUser(email);
+		return usr.get(0);
+		
+		
 	}
 
 	@Override

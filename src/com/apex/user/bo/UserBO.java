@@ -9,7 +9,9 @@ import com.apex.user.vo.Bank;
 public interface UserBO {
 	public void addUser(User user) throws Exception;
 	public void updateUser(User user);
-	public User getUser(int id);
+	public User getUser(String email);
+	
+	public User CustomgetUser(String email) ;
 	public void deleteUser(int id);
 //	public void addbankdetails(String bankName,String ssn,String accountName);
 	

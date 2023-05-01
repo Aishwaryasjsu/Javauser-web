@@ -76,4 +76,50 @@ public class UserController {
 		
 	}
 	
+	@RequestMapping("/entrygetuser.do")
+	public String entryGetUser(@ModelAttribute User user, Model model){
+		user.Clear();
+		System.out.println("user from 1st"+user.getEmail());
+		model.addAttribute("user", user);
+		return "get";
+	}
+	
+	@RequestMapping("/getuser.do")
+	public String getUser(@ModelAttribute User user, Model model){
+		User userFull = userBO.CustomgetUser(user.getEmail());
+		System.out.println("firstname from second"+userFull);
+		model.addAttribute("user", userFull);
+		return "success";
+	}
+	
+	
+	@RequestMapping("/entryupdateuser.do")
+	public String entryUpdateUserUser(@ModelAttribute User user, Model model){
+		user.Clear();
+		model.addAttribute("user", user);
+		return "update";
+	}
+	@RequestMapping("/showuser.do")
+	public String showUser(@ModelAttribute User user, Model model){
+		
+			User userFull = userBO.CustomgetUser(user.getEmail());
+			
+			model.addAttribute("user", userFull);
+			return "show";
+		}
+	
+	
+	@RequestMapping("/update.do")
+	public String updateUser(@ModelAttribute User user, Model model){
+		
+		    userBO.updateUser(user);
+
+			model.addAttribute("user", user);
+			return "success";
+		}
 }
+	
+
+
+	
+

@@ -18,7 +18,7 @@
 	<p>SSN: 			${user.ssn}</p>
 	
 	
-
+<td colspan="2"><a href="/UserWeb/">Back</a>
 	
 
 </body>

@@ -26,7 +26,7 @@ public class BankBOImpl implements BankBO {
 	}
 
 	@Override
-	public Bank getBank(int id) {
+	public Bank getBank(String firstName) {
 		return null;
 	}
 

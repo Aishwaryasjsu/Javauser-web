@@ -9,6 +9,14 @@
 <center><h1>Personal Info Page</h1></center>
 <form:form method="post" modelAttribute="user" action="/UserWeb/adduser.do">
       <table>
+       <tr>
+              <td>Id:</td>
+              <td><form:input path="id" /></td>
+          </tr>
+          <tr>
+              <td>EmailId:</td>
+              <td><form:input path="email" /></td>
+          </tr>
           <tr>
               <td>First Name:</td>
               <td><form:input path="firstName" /></td>

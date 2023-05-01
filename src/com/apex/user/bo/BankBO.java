@@ -6,7 +6,7 @@ import com.apex.user.vo.Bank;
 public interface BankBO {
 	public void addbankdetails(Bank bank);
 	public void updateBank(Bank bank);
-	public Bank getBank(int id);
+	public Bank getBank(String firstName);
 	public void deleteBank(int id);
 }
 

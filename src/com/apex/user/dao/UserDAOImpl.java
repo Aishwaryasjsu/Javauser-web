@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,16 +56,45 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public void updateUser(User user) {
-
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(user);
+		tx.commit();
 	}
 
 	@Override
-	public User getUser(int id) {
-		return null;
+	public User getUser(String email) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		User user = (User) session.get(com.apex.user.vo.User.class, email);
+		return user;
+		
+	
 	}
+	@Override
+	public List<User> CustomgetUser(String email) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("from User where  email= :email_d");
+		query.setParameter("email_d", email);
+		
+//	    query.executeUpdate();
+        List<User> qryResults =(List<User>) query.list();
+        for(User u: qryResults) {
+        	
+        	 System.out.println(u.getId()+" "+u.getEmail()+" "+u.getFirstName()+ " "+u.getLastName()+" "+u.getMiddleName());
+        }
+        return qryResults;}
+	
+	
+	
 
 	@Override
 	public void deleteUser(int id) {
 	}
+
+
+
+
+
+	
 
 }
