@@ -1,10 +1,16 @@
 package com.apex.user.dao;
 
-import com.apex.user.vo.User;
 
+import org.springframework.stereotype.Service;
+
+import com.apex.user.vo.User;
+@Service
 public interface UserDAO {
-	public void addUser(User user);
+	public void addUser(User user) throws Exception;
+	
+	
 	public void updateUser(User user);
 	public User getUser(int id);
 	public void deleteUser(int id);
+	
 }

@@ -12,11 +12,18 @@ public class UserBOImpl implements UserBO {
 	UserDAO userDAO = null;
 	
 	@Override
-	public void addUser(User user) {
+	public void addUser(User user) throws Exception {
 		System.out.println("UserBOImpl:addUser():Start");
 		userDAO.addUser(user);
 		System.out.println("UserBOImpl:addUser():End");
 	}
+	
+//	@Override
+//	public void addbankdetails(String bankName,String ssn,String accountName) {
+//		System.out.println("UserBOImpl:addUser():Start");
+//		userDAO.addbankdetails(bankName,ssn,accountName);
+//		System.out.println("UserBOImpl:addUser():End");
+//	}
 
 	@Override
 	public void updateUser(User user) {
